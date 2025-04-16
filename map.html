@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/map.js"></script>
   <!-- Google Maps API -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoA9pKIaCMDG2DGr2V2Dwngi1kNRhTmig&callback=initMap" async defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoA9pKIaCMDG2DGr2V2Dwngi1kNRhTmig&callback=initMap&libraries=places" async defer></script>
 </head>
 <body>
   <!-- Header Navigation -->
@@ -31,6 +31,7 @@
       <div id="map"></div>
     </div>
   </main>
-
+ <!-- Search Box -->
+  <input id="search-box" type="text" placeholder="Search location...">
 </body>
 </html>

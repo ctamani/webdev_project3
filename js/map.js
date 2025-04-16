@@ -44,4 +44,31 @@ function initMap() {
   radius: 2000
 });
 
+// ___Feature: Search ___
+const input = document.getElementById("search-box");
+const autocomplete = new google.maps.places.Autocomplete(input);
+autocomplete.bindTo("bounds", map);
+
+const searchMarker = new google.maps.Marker({
+  map: map,
+  icon: {
+    url: 'images/smollcat.png',
+    scaledSize: new google.maps.Size(40, 40),
+  },
+});
+
+autocomplete.addListener("place_changed", () => {
+  const place = autocomplete.getPlace();
+  if (!place.geometry) return;
+
+  if (place.geometry.viewport) {
+    map.fitBounds(place.geometry.viewport);
+  } else {
+    map.setCenter(place.geometry.location);
+    map.setZoom(15);
+  }
+
+  searchMarker.setPosition(place.geometry.location);
+});
+
 }
