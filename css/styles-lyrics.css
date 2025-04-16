@@ -3,6 +3,8 @@
   .lyrics-container {
     position: relative;
     overflow: hidden;
+    z-index: 1;
+    margin: 40px auto;
   }
   /* Large lyrics display styling */
   .large-lyrics-container {
@@ -21,12 +23,13 @@
 #large-lyrics-display {
   width: 100%;
   text-align: right;
-  font-size: 2.0rem;
+  font-size: 4vw;
   font-weight: bold;
-  color: rgba(106, 27, 154, 0.2);
+  color: rgba(106, 27, 154, 0.08);
   opacity: 0;
-  transition: all 0.5s ease;
+  transition: opacity 0.7s;
   padding-right: 2vw;
+  line-height: 1.1;
   user-select: none;
 }
 
@@ -41,10 +44,42 @@
 }
 
 #large-lyrics-display p.highlight {
-  color: rgba(106, 27, 154, 0.8);
+  color: rgba(105, 27, 154, 0.542);
   font-weight: bold;
   transform: scale(1.1);
   opacity: 1;
+}
+
+.lyric-line {
+  position: absolute;
+  width: 100%;
+  text-align: right;
+  font-size: 2.5rem;
+  color: rgba(106, 27, 154, 0.2);
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.8s ease;
+  pointer-events: none;
+}
+
+.lyric-line.previous {
+  opacity: 0.3;
+  transform: translateY(-50%);
+  font-size: 1.8rem;
+}
+
+.lyric-line.current {
+  opacity: 1;
+  color: #6a1b9a;
+  transform: translateY(0);
+  font-size: 3.5rem;
+  font-weight: bold;
+}
+
+.lyric-line.next {
+  opacity: 0.3;
+  transform: translateY(50%);
+  font-size: 1.8rem;
 }
 
   /* Song Content Layout */
@@ -55,7 +90,7 @@
   }
   
   .song-image img {
-    width: 150px;
+    width: 200px;
     height: auto; 
     border-radius: 10px; 
   }
@@ -81,9 +116,14 @@
   
   /* Lyrics Styling */
   .song-lyrics {
-    margin-top: 20px; /* Add spacing above the lyrics */
-    text-align: left; /* Center-align lyrics text */
-  }
+  width: 100%;
+  margin-top: 20px;
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(106, 27, 154, 0.1);
+}
   
   .song-lyrics pre {
     font-family: 'Courier New', monospace;
@@ -95,6 +135,8 @@
   font-size: 16px;
   margin: 5px 0;
   transition: all 0.3s ease;
+  padding: 3px;
+  border-radius: 4px;
 }
 
 .lyrics-line.highlight {
@@ -107,5 +149,129 @@
 
 /* Progress bar animation */
 .progress-bar {
-  transition: none; /* Remove transition to allow JS to control it */
+  transition: none;
+}
+
+.control-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6a1b9a;
+  padding: 0 10px;
+  transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+  transform: scale(1.2);
+}
+
+.control-btn.active {
+  color: #4a148c;
+  font-weight: bold;
+}
+
+.play-pause-btn {
+  background: none;
+  border: 2px solid #6a1b9a;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+
+@media (max-width: 992px) {
+  .lyrics-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  
+  #large-lyrics-display {
+    font-size: 3rem;
+  }
+  
+  .lyric-line.current {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 768px) {  
+  .song-content, .large-lyrics-container {
+    width: 100%;
+  }
+  
+  .large-lyrics-container {
+    height: 250px;
+    margin-top: 30px;
+    order: 2; /* Move lyrics display below content */
+  }
+  
+  #large-lyrics-display {
+    font-size: 2.2rem;
+    text-align: center;
+    padding: 0 15px;
+    height: 250px;
+  }
+  
+  .lyric-line {
+    text-align: center;
+    font-size: 1.8rem;
+  }
+  
+  .lyric-line.current {
+    font-size: 2.2rem;
+    padding: 5px 10px;
+  }
+  
+  .lyric-line.previous, .lyric-line.next {
+    font-size: 1.4rem;
+  }
+  
+  .song-image img {
+    width: 150px;
+  }
+  
+  .audio-player, .song-lyrics {
+    width: 100%;
+  }
+  
+  .player-controls span {
+    flex: 0 0 40px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lyrics-container {
+    padding: 10px;
+  }
+  
+  #large-lyrics-display {
+    font-size: 1.8rem;
+    height: 200px;
+  }
+  
+  .large-lyrics-container {
+    height: 200px;
+  }
+  
+  .lyric-line.current {
+    font-size: 1.8rem;
+  }
+  
+  .lyric-line.previous, .lyric-line.next {
+    font-size: 1.2rem;
+  }
+  
+  .control-btn {
+    font-size: 1.3rem;
+    padding: 0 5px;
+  }
 }
