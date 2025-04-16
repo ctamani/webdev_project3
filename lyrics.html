@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="images/smollcat.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Lyrics</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles-lyrics.css">
+    <script src="js/lyrics.js"></script>
+  </head>
+  <body>
+    <!-- Header Navigation -->
+    <header>
+      <nav>
+        <ul>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="lyrics.html">Song Lyrics</a></li>
+          <li><a href="interests.html">My Interests</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Lyrics Container -->
+    <section class="lyrics-container">
+      <div class="large-lyrics-container">
+        <div id="large-lyrics-display"></div>
+      </div>
+      <h1>I'll Keep You Safe</h1>
+      <h4>Song By Shiloh</h4>
+      <p><a href="https://www.youtube.com/watch?v=KCZqguEKdBc" target="_blank">Original Video</a></p>
+      <p>▶︎ •၊၊||၊|။|||| |</p>
+      <!-- Song Content -->
+      <div class="song-content">
+        <!-- Image -->
+        <div class="song-image">
+          <img src="images/shiloh.jpg" alt="Shiloh">
+        </div>
+        <div class="audio-player">
+          <audio id="song-audio" src="videos/songaudio.mp3" preload="metadata"></audio>
+          <div class="player-controls">
+            <span id="current-time">0:00</span>
+            <input type="range" id="progress-bar" min="0" max="100" value="0" class="progress-bar">
+            <span id="total-time">0:00</span>
+          </div>
+          <div class="controls">
+            <button id="reload-btn" class="control-btn">↻</button>
+            <button id="rewind-btn" class="control-btn">◁</button>
+            <button id="play-pause-btn" class="control-btn">▶</button>
+            <button id="forward-btn" class="control-btn">▷</button>
+            <button id="loop-btn" class="control-btn">↺</button>
+          </div>
+        </div>
+        <!-- Lyrics -->
+        <div class="song-lyrics">
+          <pre>I'll keep you safe in these arms of mine<br>Hold onto me<br>pretty baby you will see<br>I can be all you need</pre>
+        </div>
+        <p>⋆.˚✮🎧ྀི♪✮˚.⋆</p>
+        <div class="large-lyrics-container">
+        <div id="large-lyrics-display"></div>
+      </div>
+    </section>
+    <script src="js/lyrics.js"></script>
+  </body>
+</html>

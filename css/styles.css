@@ -1,0 +1,315 @@
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  ul, ol {
+    list-style: none;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* General Styles */
+  body {
+    font-family: 'Open Sans', 'Arial', 'Helvetica';
+    background: url('../images/gradient-7258997_1280.webp') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333;
+    padding-top: 60px;
+  }
+  
+  /* ______Header Navigation______ */
+  header {
+    background: rgba(246, 187, 255, 0.809); /* Light purple background */
+    padding: 15px 0;
+    width: 100%;
+    position: fixed; /* Fixed at the top */
+    top: 0;
+    left: 0;
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: center; /* Center navigation links */
+  }
+  
+  nav ul li {
+    margin: 0 20px; /* Space between links */
+  }
+  
+  nav ul li a {
+    color: #ecf0f1; /* Light text color */
+    text-decoration: none; /* Remove underline */
+    font-size: 18px; /* Font size for links */
+    padding: 10px 15px; /* Add padding around links */
+    transition: color 0.3s ease; /* Smooth hover effect */
+  }
+  
+  nav ul li a:hover {
+    color: #a5d9ff; /* Light blue hover effect */
+  }
+  
+  /* ______Resume, Lyrics, and Interests Containers______ */
+  .resume-container, .interests-container, .lyrics-container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.566); /* Semi-transparent white background */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  /* ______Lyrics Container______ */
+  .lyrics-container {
+    margin: 100px auto; /* Add spacing below the header */
+    background-color: rgba(221, 174, 255, 0.669); /* Semi-transparent white background */
+    display: flex;
+    flex-direction: column; /* Stack all elements vertically */
+    align-items: center; /* Center all elements horizontally */
+  }
+  
+  /* ______Resume Page______ */
+  .resume-container {
+    display: flex;
+    margin: 100px auto 20px;
+  }
+  
+  
+  /* Left Column */
+  .left-column {
+    background: url('../images/background.jpg');
+    position: relative;
+    width: 30%;
+    padding: 20px;
+    text-align: center;
+    color: white; /* Adjust text color for better readability */
+  }
+  
+  .left-column::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 204, 253, 0.5); /* Dark semi-transparent overlay */
+    z-index: 1;
+  }
+  
+  .left-column * {
+    position: relative;
+    z-index: 2; /* Ensures text appears above the overlay */
+  }
+  
+  .profile-picture img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+  }
+  
+  .left-column h1 {
+    font-size: 24px;
+    margin-top: 15px;
+  }
+  
+  .job-title {
+    font-size: 16px;
+    color: #ff6f91;
+  }
+  
+  .contact-section, .education-section, .skills-section {
+    margin-top: 20px;
+  }
+  
+  .contact-section a {
+    color: #ff6f91; 
+  }
+  
+  .skills-section ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .skills-section ul li {
+    margin-bottom: 5px;
+  }
+  
+  /* Right Column */
+  .right-column {
+    width: 70%;
+    padding: 25px;
+  }
+  
+  .right-column h2 {
+    font-size: 22px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+  }
+  
+  .summary-section p, .experience-item ul, .project-item ul {
+    line-height: 1.9em;
+  }
+  
+  /* Projects Section */
+  .projects-section .project-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .projects-section .project-item img {
+    width: 120px; /* Adjust image size */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 20px; /* Space between image and text */
+  }
+  
+  .projects-section .project-item h3 {
+    font-size: 18px;
+  }
+  
+  
+  /* ______Interest Page Sections______ */
+
+  .interests-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 100px; /* Add spacing below the header */
+  }
+  
+  /* Heading Styling */
+  .interests-container h1 {
+    font-family: 'SunFlower', 'Arial';
+    text-align: center;
+    font-size: 55px;
+    color: #ff8df7;
+  }
+  
+  /* Paragraph Styling */
+  .interests-container p {
+    text-align: center;
+    font-size: 25px;
+    font-style: italic;
+    margin-bottom: 20px; /* Add spacing below the paragraph */
+  }
+  
+  .interests-container h2 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 20px; /* Add spacing below the paragraph */
+  }
+  
+  .interest-section {
+    margin-bottom: 30px; /* Space between sections */
+  }
+
+  /* Paragraph Styling */
+  .interest-section p {
+    text-align: center;
+    margin-bottom: 20px; /* Add spacing below the paragraph */
+  }
+  
+  .interest-section h2 {
+    text-align: center;
+    font-size: 45px;
+    color: #b77fda;
+  }
+  
+  .interest-section h3 {
+    text-align: center;
+    font-size: 22px;
+    color: #b06dc2e6;
+  }
+  
+  .interest-section img,
+  .interest-section video {
+    width: 60%; 
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners for images */
+    display: block;
+    margin: 0 auto; /* Center the image */
+  }
+  
+  /* My Cat Section */
+  /* Heart-shaped Image Container */
+  .heart-image-container {
+    align-items: center;
+    margin: auto;
+    display: flex;
+    justify-content: center; /* Center the heart-shaped image */
+    margin-bottom: 20px; /* Add spacing below the heart image */
+    width: 300px; 
+    height: auto; /* Maintain aspect ratio */
+    max-width: 35%; 
+  }
+  
+  /* My Cat Section */
+  .cat-images {
+    display: flex; /* Arrange images horizontally */
+    gap: 5px; /* Add space between images */
+    justify-content: center; /* Center images horizontally */
+    margin-top: 20px; /* Add spacing above the images */
+  }
+  
+  .cat-images img {
+    width: 300px; /* Adjust image size */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners for images */
+    width: 100%;
+    max-width: 30%; 
+    height: auto;
+    margin: 10px;
+  }
+  
+  /* ASCII Art Styling */
+  .ascii-art pre {
+    font-family: 'Courier New', monospace; /* Monospace font for proper alignment */
+    font-size: 16px; /* Adjust font size for better readability */
+    text-align: center; /* Center-align the ASCII art */
+    margin-top: 20px; /* Add spacing above the ASCII art */
+  }
+  
+  @font-face {
+    font-family: "SunFlower"; 
+    src: url("../fonts/Sun\ Flower.otf") format("woff2"), 
+         url("../fonts/Sun\ Flower.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .resume-container {
+        flex-direction: column; /* Stack elements */
+        align-items: center;
+    }
+
+    .left-column, .right-column {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .interest-section img,
+    .interest-section video {
+        width: 90%; /* Make images scale properly */
+    }
+}

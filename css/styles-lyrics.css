@@ -1,0 +1,111 @@
+/*_______Lyrics Page________*/
+
+  .lyrics-container {
+    position: relative;
+    overflow: hidden;
+  }
+  /* Large lyrics display styling */
+  .large-lyrics-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+#large-lyrics-display {
+  width: 100%;
+  text-align: right;
+  font-size: 2.0rem;
+  font-weight: bold;
+  color: rgba(106, 27, 154, 0.2);
+  opacity: 0;
+  transition: all 0.5s ease;
+  padding-right: 2vw;
+  user-select: none;
+}
+
+#large-lyrics-display.active {
+  opacity: 1;
+}
+
+#large-lyrics-display p {
+  margin: 1rem 0;
+  transition: all 0.3s ease;
+  opacity: 0.2;
+}
+
+#large-lyrics-display p.highlight {
+  color: rgba(106, 27, 154, 0.8);
+  font-weight: bold;
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+  /* Song Content Layout */
+  .song-content {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center all items horizontally */
+  }
+  
+  .song-image img {
+    width: 150px;
+    height: auto; 
+    border-radius: 10px; 
+  }
+  
+  /* Audio Player Design */
+  .audio-player {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .player-controls {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .controls {
+    font-size: 24px;
+    font-weight: bolder;
+    color: #6a1b9a; /* Purple accent for controls */
+  }
+  
+  /* Lyrics Styling */
+  .song-lyrics {
+    margin-top: 20px; /* Add spacing above the lyrics */
+    text-align: left; /* Center-align lyrics text */
+  }
+  
+  .song-lyrics pre {
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+  }
+
+/* Original lyrics styling updates */
+.lyrics-line {
+  font-size: 16px;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+.lyrics-line.highlight {
+  color: #6a1b9a;
+  font-weight: bold;
+  background-color: #f3e5f5;
+  padding: 4px;
+  border-radius: 5px;
+}
+
+/* Progress bar animation */
+.progress-bar {
+  transition: none; /* Remove transition to allow JS to control it */
+}
