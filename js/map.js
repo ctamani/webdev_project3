@@ -24,7 +24,7 @@ function initMap() {
     },
   });
 
-  // ___Feature: InfoWindow___
+  // Feature 1: InfoWindow
   // 4. Add an InfoWindow
   const infoWindow = new google.maps.InfoWindow({
     content: "<h2>IIT Main Campus</h2><p>Come visit us in Chicago!</p>"
@@ -44,7 +44,7 @@ function initMap() {
   radius: 2000
 });
 
-// ___Feature: Search ___
+// Feature 2: Search 
 const input = document.getElementById("search-box");
 const autocomplete = new google.maps.places.Autocomplete(input);
 autocomplete.bindTo("bounds", map);
@@ -69,6 +69,75 @@ autocomplete.addListener("place_changed", () => {
   }
 
   searchMarker.setPosition(place.geometry.location);
+});
+
+// Feature 3: Click-to-drop-pin 
+let pinCount = 0;
+const allMarkers = [];
+
+map.addListener("click", (e) => {
+  const lat = e.latLng.lat().toFixed(5);
+  const lng = e.latLng.lng().toFixed(5);
+
+  // Prompt user for a note
+  const note = prompt("Add a note for this pin:", `Pin ${pinCount + 1}`);
+
+  // Exit early if Cancel was clicked or input is empty
+  if (note === null || note.trim() === "") {
+    return;
+  }
+
+  pinCount++;
+
+  const marker = new google.maps.Marker({
+    position: e.latLng,
+    map: map,
+    title: note
+  });
+
+  allMarkers.push(marker);
+
+  const infoWindow = new google.maps.InfoWindow({
+    content: `<strong>${note}</strong><br>(${lat}, ${lng})`
+  });
+
+  marker.addListener("click", () => infoWindow.open(map, marker));
+
+  const listItem = document.createElement("li");
+  listItem.innerHTML = `📍 <strong>${note}</strong> — (${lat}, ${lng})
+    <button class="edit-btn" style="margin-left: 10px;">Edit</button>`;
+
+  // Edit button functionality (same logic as before)
+  listItem.querySelector(".edit-btn").addEventListener("click", () => {
+    const newNote = prompt("Edit your pin note:", note);
+    if (newNote !== null && newNote.trim() !== "") {
+      listItem.innerHTML = `📍 <strong>${newNote}</strong> — (${lat}, ${lng})
+        <button class="edit-btn" style="margin-left: 10px;">Edit</button>`;
+      marker.setTitle(newNote);
+      infoWindow.setContent(`<strong>${newNote}</strong><br>(${lat}, ${lng})`);
+
+      // Rebind edit after HTML replacement
+      listItem.querySelector(".edit-btn").addEventListener("click", () => {
+        const newNoteAgain = prompt("Edit your pin note again:", newNote);
+        if (newNoteAgain !== null && newNoteAgain.trim() !== "") {
+          listItem.innerHTML = `📍 <strong>${newNoteAgain}</strong> — (${lat}, ${lng})
+            <button class="edit-btn" style="margin-left: 10px;">Edit</button>`;
+          marker.setTitle(newNoteAgain);
+          infoWindow.setContent(`<strong>${newNoteAgain}</strong><br>(${lat}, ${lng})`);
+        }
+      });
+    }
+  });
+
+  document.getElementById("location-list").appendChild(listItem);
+});
+
+// Clear all pins + list
+document.getElementById("clear-pins").addEventListener("click", () => {
+  allMarkers.forEach(marker => marker.setMap(null));
+  allMarkers.length = 0;
+  document.getElementById("location-list").innerHTML = '';
+  pinCount = 0;
 });
 
 }

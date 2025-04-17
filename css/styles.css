@@ -445,6 +445,19 @@
   border-radius: 15px;
 }
 
+#location-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+#location-list li {
+  padding: 5px;
+  background: #f0f0f0;
+  margin-bottom: 5px;
+  border-radius: 4px;
+}
+
 @media screen and (max-width: 768px) {
   .maps-container {
     margin-top: 80px;
