@@ -1,4 +1,5 @@
 // ==================== LYRICS PLAYER CODE ====================
+
 document.addEventListener('DOMContentLoaded', () => {
   // --- Controls ---
   const audio = document.getElementById('song-audio');
